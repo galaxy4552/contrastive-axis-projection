@@ -1,0 +1,44 @@
+{
+  "id": 100,
+  "name": "philosophy_axis_detector_v1",
+  "title": "Philosophical Axis Projection Detector",
+  "version": "1.0.0",
+
+  "encoder": {
+    "base_model": "bge-large-zh-v1.5",
+    "embedding_dim": 1024,
+    "normalized": true
+  },
+
+  "projection": {
+    "method": "contrastive_axis + qr_orthogonalization",
+    "axis_count": 8,
+    "source": "100_axis.json",
+    "notes": "Each axis constructed as mean(B) - mean(A) then orthogonalized via QR."
+  },
+
+  "router_recommendation": {
+    "metric": "projection_norm",
+    "threshold": null,
+    "precision_priority": true,
+    "description": "Input is considered philosophical when norm of 8D axis projection exceeds threshold."
+  },
+
+  "axes_orthogonalized": true,
+  "orthogonalization_method": "qr",
+
+  "axis_order": [
+    "free_will_vs_determinism",
+    "deontology_vs_consequentialism",
+    "virtue_vs_rule",
+    "meaning_vs_nihilism",
+    "rationalism_vs_empiricism",
+    "moral_objectivism_vs_relativism",
+    "essentialism_vs_existentialism",
+    "suffering_value_vs_negative"
+  ],
+
+  "license": "experimental_internal",
+  "created_by": "FieldOwl",
+  "date_created": null
+}
